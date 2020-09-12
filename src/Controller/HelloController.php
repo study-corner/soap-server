@@ -16,8 +16,9 @@ class HelloController extends AbstractController
      */
     public function index(HelloService $helloService)
     {
-        $soapServer = new \SoapServer('/var/www/soap-server/public/schema/hello.xml');
-//        $soapServer->setObject($helloService);
+        $dir =  realpath(__DIR__ . '/../../public/schema') ;
+        $soapServer = new \SoapServer($dir . '/hello.xml');
+        $soapServer->setObject($helloService);
 
         $response = new Response();
         $response->headers->set('Content-Type', 'text/xml; charset=ISO-8859-1');

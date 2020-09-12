@@ -13,7 +13,6 @@ class HelloService
 
     public function hello($name)
     {
-
         $message = (new \Swift_Message('Hello Service'))
             ->setTo('kestutisa@gmail.com')
             ->setBody($name . ' says hi!');

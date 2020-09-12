@@ -43,7 +43,7 @@
     </binding>
     <service name="hellowsdl">
         <port name="hellowsdlPort" binding="tns:hellowsdlBinding">
-            <soap:address location="localhost/soap"/>
+            <soap:address location="http://soap-server.test/soap"/>
         </port>
     </service>
 </definitions>
