@@ -16,15 +16,16 @@ class HelloController extends AbstractController
      */
     public function index(HelloService $helloService)
     {
-        $soapServer = new \SoapServer('/path/to/hello.wsdl');
-        $soapServer->setObject($helloService);
+        $soapServer = new \SoapServer('/var/www/soap-server/public/schema/hello.xml');
+//        $soapServer->setObject($helloService);
 
         $response = new Response();
         $response->headers->set('Content-Type', 'text/xml; charset=ISO-8859-1');
 
         ob_start();
         $soapServer->handle();
-        $response->setContent(ob_get_clean());
+        $content = ob_get_clean();
+        $response->setContent($content);
 
         return $response;
     }

@@ -15,7 +15,7 @@ class HelloService
     {
 
         $message = (new \Swift_Message('Hello Service'))
-            ->setTo('me@example.com')
+            ->setTo('kestutisa@gmail.com')
             ->setBody($name . ' says hi!');
 
         $this->mailer->send($message);
